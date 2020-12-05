@@ -5,10 +5,19 @@
 using namespace std;
 
 int main() {
-	std::vector<std::vector<double> > points;
-	std::vector<int> data;
+	int n = 5;
 
-	eda::vantage_point_tree::VantagePointTree<int> vt(points, data);
+	std::vector<std::vector<double> > points(n, {0, 0});
+	std::vector<string> data(n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = i + 'A';
+
+		points[i][0] = (23 * i) % 13;
+		points[i][1] = (11 * i) % 7;
+	}
+
+	eda::vantage_point_tree::VantagePointTree<string> vt(2, points, data);
 
 	vt.print();
 }

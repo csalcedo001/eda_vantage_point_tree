@@ -11,11 +11,12 @@ template <typename T, class Node>
 class BaseVantagePointTree {
 private:
 	Node *head_;
+	int dimensions_;
 	std::vector<std::vector<double> > points_;
 	std::vector<T> data_;
 
 public:
-	BaseVantagePointTree(std::vector<std::vector<double> > &, std::vector<T> &);
+	BaseVantagePointTree(int, std::vector<std::vector<double> > &, std::vector<T> &);
 	~BaseVantagePointTree();
 
 	void print();

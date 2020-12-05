@@ -13,7 +13,7 @@ namespace vantage_point_tree {
 template <typename T>
 class VantagePointTree : public BaseVantagePointTree<T, Node<T> > {
 public:
-	VantagePointTree(std::vector<std::vector<double> > &, std::vector<T> &);
+	VantagePointTree(int, std::vector<std::vector<double> > &, std::vector<T> &);
 };
 
 } // namespace vantage_point_tree

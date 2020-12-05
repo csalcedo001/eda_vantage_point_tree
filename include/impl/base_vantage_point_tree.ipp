@@ -13,8 +13,9 @@ namespace eda {
 namespace vantage_point_tree {
 
 template <typename T, class Node>
-BaseVantagePointTree<T, Node>::BaseVantagePointTree(std::vector<std::vector<double> > &points, std::vector<T> &data) :
+BaseVantagePointTree<T, Node>::BaseVantagePointTree(int dimensions, std::vector<std::vector<double> > &points, std::vector<T> &data) :
 	head_(nullptr),
+	dimensions_(dimensions),
 	points_(points),
 	data_(data)
 {
@@ -93,7 +94,10 @@ template <typename T, class Node>
 void BaseVantagePointTree<T, Node>::kill(Node *node) {
 	if (node == nullptr) return;
 
-	// TODO: Implement kill
+	this->kill(node->in_);
+	this->kill(node->out_);
+
+	delete node;
 }
 
 template <typename T, class Node>
@@ -105,7 +109,17 @@ void BaseVantagePointTree<T, Node>::print(Node *node, int level) {
 	for (int l = 0; l < level; l++) {
 		std::cout << "    ";
 	}
-	std::cout << this->data_[node->index_] << std::endl;
+
+	std::cout << '(' << this->points_[node->index_][0];
+	for (int d = 1; d < this->dimensions_; d++) {
+		std::cout << ' ' << this->points_[node->index_][d];
+	}
+	std::cout << ')';
+
+	if (node->is_leaf()) {
+		std::cout << ": " << this->data_[node->index_];
+	}
+	std::cout << std::endl;
 
 	this->print(node->out_, level + 1);
 }

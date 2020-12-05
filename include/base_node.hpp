@@ -16,6 +16,8 @@ public:
 
 	BaseNode(int, double, std::vector<int>);
 	BaseNode(int);
+
+	bool is_leaf();
 };
 
 } // namespace vantage_point_tree

@@ -13,8 +13,8 @@ namespace eda {
 namespace vantage_point_tree {
 
 template <typename T>
-VantagePointTree<T>::VantagePointTree(std::vector<std::vector<double> > &points, std::vector<T> &data) :
-	BaseVantagePointTree<T, Node<T> >(points, data)
+VantagePointTree<T>::VantagePointTree(int dimensions, std::vector<std::vector<double> > &points, std::vector<T> &data) :
+	BaseVantagePointTree<T, Node<T> >(dimensions, points, data)
 { }
 
 } // namespace vantage_point_tree
