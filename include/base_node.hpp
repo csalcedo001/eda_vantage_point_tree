@@ -10,15 +10,18 @@ class BaseNode {
 public:
 	Node *in_;
 	Node *out_;
-	std::vector<double> point_;
+	int index_;
 	double radius_;
 	std::vector<int> indices_;
 
-	BaseNode(std::vector<double> &, double, std::vector<int> &);
+	BaseNode(int, double, std::vector<int>);
+	BaseNode(int);
 };
 
 } // namespace vantage_point_tree
 
 } // namespace eda
+
+#include "impl/base_node.ipp"
 
 #endif // VANTAGE_POINT_TREE_BASE_NODE_HPP

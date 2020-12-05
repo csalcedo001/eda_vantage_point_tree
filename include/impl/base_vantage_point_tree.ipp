@@ -35,6 +35,11 @@ BaseVantagePointTree<T, Node>::~BaseVantagePointTree() {
 }
 
 template <typename T, class Node>
+void BaseVantagePointTree<T, Node>::print() {
+	this->print(this->head_, 0);
+}
+
+template <typename T, class Node>
 void BaseVantagePointTree<T, Node>::build(Node *&node, std::vector<int> &indices) {
 	if (indices.size() == 0) {
 		node = nullptr;
@@ -89,6 +94,20 @@ void BaseVantagePointTree<T, Node>::kill(Node *node) {
 	if (node == nullptr) return;
 
 	// TODO: Implement kill
+}
+
+template <typename T, class Node>
+void BaseVantagePointTree<T, Node>::print(Node *node, int level) {
+	if (node == nullptr) return;
+	
+	this->print(node->in_, level + 1);
+
+	for (int l = 0; l < level; l++) {
+		std::cout << "    ";
+	}
+	std::cout << this->data_[node->index_] << std::endl;
+
+	this->print(node->out_, level + 1);
 }
 
 template <typename T, class Node>

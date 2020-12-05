@@ -12,11 +12,14 @@ namespace vantage_point_tree {
 template <typename T>
 class Node : public BaseNode<T, Node<T> > {
 public:
-	Node(std::vector<double> &, double, std::vector<int> &);
+	Node(int, double, std::vector<int>);
+	Node(int);
 };
 
 } // namespace vantage_point_tree
 
 } // namespace eda
+
+#include "impl/node.ipp"
 
 #endif // VANTAGE_POINT_TREE_NODE_HPP

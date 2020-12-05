@@ -18,9 +18,12 @@ public:
 	BaseVantagePointTree(std::vector<std::vector<double> > &, std::vector<T> &);
 	~BaseVantagePointTree();
 
+	void print();
+
 private:
-	void kill(Node *);
 	void build(Node *&, std::vector<int> &);
+	void kill(Node *);
+	void print(Node *, int);
 
 public:
 	virtual double distance(std::vector<double>, std::vector<double>);

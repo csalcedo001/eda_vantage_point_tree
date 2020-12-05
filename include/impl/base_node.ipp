@@ -6,10 +6,15 @@ namespace eda {
 namespace vantage_point_tree {
 
 template <typename T, class Node>
-BaseNode<T, Node>::BaseNode(std::vector<double> &point, double radius, std::vector<int> &indices) :
-	point_(point),
+BaseNode<T, Node>::BaseNode(int index, double radius, std::vector<int> indices) :
+	index_(index),
 	radius_(radius),
 	indices_(indices)
+{ }
+
+template <typename T, class Node>
+BaseNode<T, Node>::BaseNode(int index) :
+	index_(index)
 { }
 
 } // namespace vantage_point_tree

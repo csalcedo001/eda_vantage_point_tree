@@ -9,4 +9,6 @@ int main() {
 	std::vector<int> data;
 
 	eda::vantage_point_tree::VantagePointTree<int> vt(points, data);
+
+	vt.print();
 }
